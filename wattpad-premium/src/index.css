@@ -1,0 +1,392 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #0a0a1a, #000);
+  color: white;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 25%;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-right: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.story {
+  padding: 10px;
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.story:hover {
+  background: gold;
+  color: black;
+}
+
+/* EDITOR */
+.editor {
+  width: 75%;
+  padding: 20px;
+}
+
+textarea {
+  width: 100%;
+  height: 80%;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  outline: none;
+  padding: 20px;
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+}
+/* bouton ajouter */
+.add-btn {
+  margin-top: 15px;
+  padding: 10px;
+  width: 100%;
+  background: gold;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.add-btn:hover {
+  background: #ffd700cc;
+}
+
+/* histoire active */
+.story.active {
+  background: gold;
+  color: black;
+}
+/* TOPBAR */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.title-input {
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  color: gold;
+  outline: none;
+}
+
+.mode-btn {
+  padding: 8px 15px;
+  background: gold;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* MODE LECTURE */
+.reader {
+  padding: 40px;
+  line-height: 1.8;
+  font-size: 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+.reader h1 {
+  text-align: center;
+  color: gold;
+  margin-bottom: 30px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* LOGIN */
+.login {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #000, #0a0a2a);
+}
+
+.login input {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.login button {
+  padding: 10px 20px;
+  background: gold;
+  border: none;
+  cursor: pointer;
+}
+
+/* 🎬 ANIMATIONS CINÉMA */
+.content.edit {
+  animation: slideIn 0.4s ease;
+}
+
+.content.read {
+  animation: fadeCinema 0.6s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeCinema {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* MODE LECTURE PREMIUM */
+.reader {
+  padding: 40px;
+  line-height: 1.8;
+  font-size: 20px;
+  background: radial-gradient(circle, #000, #02021a);
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(255,215,0,0.2);
+}
+
+.reader h1 {
+  text-align: center;
+  color: gold;
+}
+/* 🌗 THEMES */
+.app.dark {
+  background: #000;
+  color: white;
+}
+
+.app.light {
+  background: #f5f5f5;
+  color: black;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+  }
+
+  .story {
+    min-width: 120px;
+  }
+
+  .editor {
+    width: 100%;
+  }
+}
+
+/* boutons */
+button {
+  margin: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+/* 🌗 DARK MODE (par défaut) */
+.app.dark {
+  background: #000;
+  color: white;
+}
+
+.app.dark textarea {
+  background: #111;
+  color: white;
+}
+
+.app.dark .sidebar {
+  background: #0a0a1a;
+}
+
+.app.dark .story {
+  background: #1c1c2e;
+}
+
+/* 🌞 LIGHT MODE (CORRIGÉ PROPREMENT) */
+.app.light {
+  background: #f5f5f5;
+  color: #111;
+}
+
+.app.light .sidebar {
+  background: #ffffff;
+  border-right: 1px solid #ddd;
+}
+
+.app.light .story {
+  background: #eaeaea;
+  color: #111;
+}
+
+.app.light .story.active {
+  background: gold;
+  color: black;
+}
+
+.app.light textarea {
+  background: #ffffff;
+  color: #111;
+  border: 1px solid #ddd;
+}
+
+/* TOPBAR */
+.app.light input {
+  color: #111;
+}
+
+/* READER */
+.app.light .reader {
+  background: white;
+  color: #111;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+.app.light {
+  background: linear-gradient(135deg, #ffffff, #f0f0f0);
+}
+
+.app.light .story:hover {
+  background: #ddd;
+}
+/* transition globale */
+.app {
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* tous les éléments */
+.sidebar, .editor, textarea, .story, .reader, input {
+  transition: all 0.4s ease;
+}
+/* DARK PREMIUM */
+.app.dark {
+  background: radial-gradient(circle at top, #0a0a1a, #000);
+  color: white;
+}
+
+.app.dark .story.active {
+  background: linear-gradient(135deg, gold, #ffd700);
+  color: black;
+  box-shadow: 0 0 15px gold;
+}
+
+/* boutons */
+button {
+  background: linear-gradient(135deg, gold, #ffcc00);
+  border: none;
+  border-radius: 8px;
+  color: black;
+  font-weight: bold;
+}
+
+button:hover {
+  box-shadow: 0 0 10px gold;
+}
+
+/* effet néon */
+.mode-btn {
+  box-shadow: 0 0 10px rgba(255,215,0,0.5);
+}
+/* 🌌 FOND CORÉEN FUTURISTE */
+.app {
+  position: relative;
+  overflow: hidden;
+}
+
+.app::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: radial-gradient(circle at 20% 30%, #1a1a40, transparent),
+              radial-gradient(circle at 80% 70%, #3a0ca3, transparent),
+              radial-gradient(circle at 50% 50%, #7209b7, transparent);
+
+  z-index: -2;
+}
+
+/* ✨ effet néon flottant */
+.app::after {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 0, 255, 0.1),
+    transparent
+  );
+
+  animation: moveGlow 10s linear infinite;
+  z-index: -1;
+}
+
+@keyframes moveGlow {
+  from {
+    transform: translate(-50%, -50%);
+  }
+  to {
+    transform: translate(0%, 0%);
+  }
+}
+/* glow global */
+.app.dark {
+  box-shadow: inset 0 0 200px rgba(0,0,0,0.8);
+}
+
+/* texte glow */
+h1, h2 {
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.6);
+}
+
+/* sidebar vibe néon */
+.sidebar {
+  background: rgba(10, 10, 30, 0.7);
+  backdrop-filter: blur(15px);
+  border-right: 1px solid rgba(255, 0, 255, 0.2);
+}
+/* effet particules simple */
+body::after {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url("https://www.transparenttextures.com/patterns/stardust.png");
+  opacity: 0.2;
+  z-index: -3;
+}
